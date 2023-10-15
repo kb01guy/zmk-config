@@ -23,9 +23,9 @@
 // |  Ä   |  Ö  |  Q  |  J  |  K  |  X  |   |  B  |  M   |  ,  |  .  |  #  |  -   |
 //                    | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp U     &kp COMMA &kp KP_DOT &kp P     &kp Y          &kp F     &kp G     &kp C     &kp T     &kp Z     &kp QMARK
+   &kp TAB   &de_ue    &kp COMMA &kp KP_DOT &kp P     &kp Y          &kp F     &kp G     &kp C     &kp T     &kp Z     &kp QMARK
    &kp LSHFT &kp A     &kp O     &kp E      &kp I     &kp U          &kp H     &kp D     &kp R     &kp N     &kp S     &kp L
-   &kp A     &kp O     &kp Q     &kp J      &kp K     &kp X          &kp B     &kp M     &kp W     &kp V     &kp HASH  &kp MINUS
+   &de_ae    &de_oe    &kp Q     &kp J      &kp K     &kp X          &kp B     &kp M     &kp W     &kp V     &kp HASH  &kp MINUS
                                  &kp LCTRL  &kp LGUI  &kp SPACE      &kp RET   &mo 2     &kp RALT
                         >;
                 };
