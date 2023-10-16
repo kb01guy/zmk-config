@@ -51,10 +51,10 @@
             //                    | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&mt ESC TAB  &de_ue  &kp COMMA  &kp KP_DOT  &kp P       &kp Y        &kp F   &kp G       &kp C  &kp T  &kp Z     &kp BACKSPACE
-&kp CARET    &kp A   &kp O      &kp E       &kp I       &kp U        &kp H   &kp D       &kp R  &kp N  &kp S     &kp L
-&de_ae       &de_oe  &kp Q      &kp J       &kp K       &kp X        &kp B   &kp M       &kp W  &kp V  &kp HASH  &kp MINUS
-                                &kp LCTRL   &kp LSHIFT  &kp SPACE    &tog 1  &kp RSHIFT  &mo 4
+&mt ESC TAB  &de_ue  &kp COMMA  &kp DOT    &kp P       &kp Y        &kp F   &kp G       &kp C  &kp T  &kp Z     &kp BACKSPACE
+&kp CARET    &kp A   &kp O      &kp E      &kp I       &kp U        &kp H   &kp D       &kp R  &kp N  &kp S     &kp L
+&de_ae       &de_oe  &kp Q      &kp J      &kp K       &kp X        &kp B   &kp M       &kp W  &kp V  &kp HASH  &kp MINUS
+                                &kp LCTRL  &kp LSHIFT  &kp SPACE    &tog 1  &kp RSHIFT  &mo 4
             >;
         };
 
@@ -100,7 +100,7 @@
         altgr {
             bindings = <
 &trans  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
-&trans  &kp AT          &alt_trans        &alt_trans         &kp PIPE         &alt_trans    &alt_trans  &alt_trans  &alt_trans  &kp LPAR    &kp RPAR    &alt_trans
+&trans  &kp AT          &alt_trans        &alt_trans         &kp PIPE         &alt_trans    &alt_trans  &alt_trans  &alt_trans  &kp LPAR    &kp RPAR    &kp ENTER
 &trans  &alt_trans      &alt_trans        &alt_trans         &alt_trans       &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
                                           &trans             &trans           &trans        &trans      &trans      &trans
             >;
