@@ -15,6 +15,31 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        Gui {
+            bindings = <&kp LEFT_GUI>;
+            key-positions = <13 14>;
+        };
+    };
+
+    macros {
+        alt_trans: alt_trans {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp RALT>,
+                <&macro_tap>,
+                <&trans>,
+                <&macro_release>,
+                <&kp RALT>;
+
+            label = "ALT_TRANS";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -26,14 +51,14 @@
             //                    | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&mt ESC TAB  &de_ue  &kp COMMA  &kp KP_DOT  &kp P       &kp Y        &kp F  &kp G       &kp C          &kp T  &kp Z     &kp QMARK
-&kp CARET    &kp A   &kp O      &kp E       &kp I       &kp U        &kp H  &kp D       &kp R          &kp N  &kp S     &kp L
-&de_ae       &de_oe  &kp Q      &kp J       &kp K       &kp X        &kp B  &kp M       &kp W          &kp V  &kp HASH  &kp MINUS
-                                &kp LCTRL   &kp LSHIFT  &kp SPACE    &mo 1  &kp RSHIFT  &kp BACKSPACE
+&mt ESC TAB  &de_ue  &kp COMMA  &kp KP_DOT  &kp P       &kp Y        &kp F   &kp G       &kp C  &kp T  &kp Z     &kp BACKSPACE
+&kp CARET    &kp A   &kp O      &kp E       &kp I       &kp U        &kp H   &kp D       &kp R  &kp N  &kp S     &kp L
+&de_ae       &de_oe  &kp Q      &kp J       &kp K       &kp X        &kp B   &kp M       &kp W  &kp V  &kp HASH  &kp MINUS
+                                &kp LCTRL   &kp LSHIFT  &kp SPACE    &tog 1  &kp RSHIFT  &mo 4
             >;
         };
 
-        lower_layer {
+        number {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
@@ -41,14 +66,14 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans    &trans     &trans  &trans
-                                        &kp LGUI      &trans        &kp SPACE       &kp RET   &trans    &kp RALT
+&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4          &kp N5          &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
+&kp LSHFT   &trans        &trans        &trans        &trans          &trans          &trans    &trans    &trans    &trans     &trans  &trans
+                                        &kp LGUI      &kp LEFT_SHIFT  &tog 0          &tog 2    &trans    &kp RALT
             >;
         };
 
-        raise_layer {
+        symbol {
             // -----------------------------------------------------------------------------------------
             // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
@@ -59,7 +84,25 @@
 &kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
 &kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
 &kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
+                             &kp LGUI  &trans    &tog 0       &kp RET    &trans     &kp RALT
+            >;
+        };
+
+        navigation {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &tog 0    &trans  &trans  &trans
+            >;
+        };
+
+        altgr {
+            bindings = <
+&trans  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
+&trans  &kp AT          &alt_trans        &alt_trans         &kp PIPE         &alt_trans    &alt_trans  &alt_trans  &alt_trans  &kp LPAR    &kp RPAR    &alt_trans
+&trans  &alt_trans      &alt_trans        &alt_trans         &alt_trans       &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
+                                          &trans             &trans           &trans        &trans      &trans      &trans
             >;
         };
     };
