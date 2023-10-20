@@ -7,21 +7,12 @@
 #include <behaviors.dtsi>
 
 #define HOST_OS 0  // default is 0 (Windows with wincompose); 1 (linux); 2 (Windows limited, macOS)
-
-#include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/keypos_def/keypos_42keys.h"
-#include "../zmk-nodefree-config/international_chars/german.dtsi"
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
     combos {
         compatible = "zmk,combos";
-
-        Gui {
-            bindings = <&kp LEFT_GUI>;
-            key-positions = <13 14>;
-        };
     };
 
     macros {
@@ -38,6 +29,136 @@
 
             label = "ALT_TRANS";
         };
+        sym_section: sym_section {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp S &kp E &kp C>;
+            label = "SYM_SECTION";
+        };
+        de_ue: de_ue {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp U &kp DQT>;
+            label = "DE_UE";
+        };
+        de_ae: de_ae {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp A &kp DQT>;
+            label = "DE_AE";
+        };
+        de_oe: de_oe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp O &kp DQT>;
+            label = "DE_OE";
+        };
+        de_ss: de_ss {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp S &kp S>;
+            label = "DE_SS";
+        };
+        sym_eur: sym_eur {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp C &kp EQUAL>;
+            label = "SYM_EUR";
+        };
+        sym_ss1: sym_ss1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp CARET &kp KP_NUMBER_1>;
+            label = "SYM_SS1";
+        };
+        sym_ss2: sym_ss2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp CARET &kp KP_NUMBER_2>;
+            label = "SYM_SS2";
+        };
+        sym_ss3: sym_ss3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp CARET &kp KP_NUMBER_3>;
+            label = "SYM_SS3";
+        };
+        sym_tm: sym_tm {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp T &kp M>;
+            label = "SYM_TM";
+        };
+        sym_reg: sym_reg {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp O &kp R>;
+            label = "SYM_REG";
+        };
+        sym_copy: sym_copy {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp O &kp C>;
+            label = "SYM_COPY";
+        };
+        nav_space_next: nav_space_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LGUI>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LGUI &kp LCTRL>;
+
+            label = "NAV_SPACE_NEXT";
+        };
+        nav_space_prev: nav_space_prev {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL &kp LGUI>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LGUI &kp LCTRL>;
+
+            label = "NAV_SPACE_PREV";
+        };
+        nav_win_next: nav_win_next {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LALT>;
+
+            label = "NAV_WIN_NEXT";
+        };
+        nav_win_prev: nav_win_prev {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LALT &kp LSHFT>,
+                <&macro_tap>,
+                <&kp TAB>,
+                <&macro_release>,
+                <&kp LSHFT &kp LALT>;
+
+            label = "NAV_WIN_PREV";
+        };
+        nav_desktop: nav_desktop {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&sk LGUI &kp D>;
+            label = "NAV_DESKTOP";
+        };
     };
 
     keymap {
@@ -51,10 +172,10 @@
             //                    | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&mt ESC TAB  &de_ue  &kp COMMA  &kp DOT    &kp P       &kp Y        &kp F  &kp G       &kp C  &kp T  &kp Z     &kp BACKSPACE
-&kp CARET    &kp A   &kp O      &kp E      &kp I       &kp U        &kp H  &kp D       &kp R  &kp N  &kp S     &kp L
-&de_ae       &de_oe  &kp Q      &kp J      &kp K       &kp X        &kp B  &kp M       &kp W  &kp V  &kp HASH  &kp MINUS
-                                &kp LCTRL  &kp LSHIFT  &kp SPACE    &to 1  &kp RSHIFT  &mo 4
+&mt ESC TAB  &de_ue  &mt SEMICOLON KP_COMMA  &mt COLON KP_DOT  &kp P         &kp Y        &kp F  &kp G       &kp C  &kp T                   &kp Z                    &kp BACKSPACE
+&kp CARET    &kp A   &kp O                   &kp E             &kp I         &kp U        &kp H  &kp D       &kp R  &mt LEFT_PARENTHESIS N  &mt RIGHT_PARENTHESIS S  &mt ENTER L
+&de_ae       &de_oe  &kp Q                   &kp J             &kp K         &kp X        &kp B  &kp M       &kp W  &kp V                   &mt APOS HASH            &kp MINUS
+                                             &kp LCTRL         &kp LEFT_GUI  &kp SPACE    &to 1  &kp RSHIFT  &mo 4
             >;
         };
 
@@ -66,10 +187,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4          &kp N5          &kp N6  &kp N7    &kp N8    &kp N9  &kp N0     &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3    &bt BT_SEL 4    &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans
-&kp LSHFT   &trans        &trans        &trans        &trans          &trans          &trans  &trans    &trans    &trans  &trans     &trans
-                                        &kp LGUI      &kp LEFT_SHIFT  &to 0           &to 2   &trans    &kp RALT
+&kp N1      &kp N2        &kp N3        &kp N4        &kp N5        &kp N6          &kp N7           &kp N8                   &kp N9           &kp N0           &kp KP_PLUS           &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp PRINTSCREEN  &mt C_STOP C_PLAY_PAUSE  &mt C_RW C_PREV  &mt C_FF C_NEXT  &kp KP_MINUS          &kp ENTER
+&none       &none         &none         &none         &none         &none           &kp C_MENU       &kp C_MUTE               &kp C_VOL_DN     &kp C_VOL_UP     &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC
+                                        &kp LCTRL     &kp LEFT_GUI  &to 0           &to 3            &mo 2                    &kp LEFT_ALT
             >;
         };
 
@@ -81,26 +202,26 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&kp LCTRL  &trans    &trans  &trans    &trans    &trans       &kp MINUS  &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&kp LSHFT  &trans    &trans  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &kp TILDE
-                             &kp LGUI  &trans    &to 0        &none      &trans     &kp RALT
+&kp EXCLAMATION  &kp DOUBLE_QUOTES  &sym_section  &kp DOLLAR   &kp PERCENT  &kp AMPERSAND    &kp GRAVE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp KP_EQUAL     &kp ASTERISK    &kp BSPC
+&sym_ss1         &sym_ss2           &sym_ss3      &trans       &trans       &none            &kp LEFT_BRACE  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp RIGHT_BRACE  &kp TILDE       &kp KP_MINUS
+&kp LESS_THAN    &kp GREATER_THAN   &kp PIPE      &kp AT_SIGN  &sym_eur     &none            &none           &none                 &kp QUESTION           &de_ss           &kp UNDERSCORE  &kp KP_PLUS
+                                                  &kp LCTRL    &kp LGUI     &to 0            &none           &trans                &kp LALT
             >;
         };
 
         navigation {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &to 0     &trans  &trans  &trans
+&kp F1   &kp F2         &kp F3         &kp F4           &kp F5           &kp F6          &kp F7    &kp F8     &kp F9    &kp F10    &kp F11    &kp F12
+&kp TAB  &nav_win_prev  &nav_win_next  &nav_space_prev  &nav_space_next  &nav_desktop    &kp LEFT  &kp DOWN   &kp UP    &kp RIGHT  &none      &kp ENTER
+&none    &none          &none          &none            &none            &none           &kp INS   &kp DEL    &kp HOME  &kp END    &kp PG_UP  &kp PG_DN
+                                       &kp LCTRL        &kp LGUI         &to 0           &none     &kp RSHFT  &kp LALT
             >;
         };
 
         altgr {
             bindings = <
-&trans  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
-&trans  &kp AT          &alt_trans        &alt_trans         &kp PIPE         &alt_trans    &alt_trans  &alt_trans  &alt_trans  &kp LPAR    &kp RPAR    &kp ENTER
+&trans  &kp LEFT_BRACE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &alt_trans    &alt_trans  &alt_trans  &sym_copy   &sym_tm     &alt_trans  &trans
+&trans  &kp AT          &alt_trans        &sym_eur           &kp PIPE         &alt_trans    &alt_trans  &alt_trans  &sym_reg    &kp LPAR    &kp RPAR    &kp ENTER
 &trans  &alt_trans      &alt_trans        &alt_trans         &alt_trans       &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
                                           &trans             &trans           &trans        &trans      &trans      &trans
             >;
