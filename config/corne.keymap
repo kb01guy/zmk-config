@@ -115,40 +115,19 @@
         nav_space_prev: nav_space_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LGUI>,
-                <&macro_tap>,
-                <&kp LEFT>,
-                <&macro_release>,
-                <&kp LGUI &kp LCTRL>;
-
+            bindings = <&sk LCTRL &sk LGUI &kp LEFT>;
             label = "NAV_SPACE_PREV";
         };
         nav_win_next: nav_win_next {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_release>,
-                <&kp LALT>;
-
+            bindings = <&sk LALT &kp TAB>;
             label = "NAV_WIN_NEXT";
         };
         nav_win_prev: nav_win_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LALT &kp LSHFT>,
-                <&macro_tap>,
-                <&kp TAB>,
-                <&macro_release>,
-                <&kp LSHFT &kp LALT>;
-
+            bindings = <&sk LALT &sk LSHIFT &kp TAB>;
             label = "NAV_WIN_PREV";
         };
         nav_desktop: nav_desktop {
@@ -156,6 +135,25 @@
             #binding-cells = <0>;
             bindings = <&sk LGUI &kp D>;
             label = "NAV_DESKTOP";
+        };
+        shift_trans: shift_trans {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LSHIFT>,
+                <&macro_tap>,
+                <&trans>,
+                <&macro_release>,
+                <&kp LSHIFT>;
+
+            label = "SHIFT_TRANS";
+        };
+        sym_deg: sym_deg {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp O &kp O>;
+            label = "SYM_DEG";
         };
     };
 
@@ -170,10 +168,10 @@
             //                    | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&mt ESC TAB  &de_ue  &mt SEMICOLON COMMA  &mt COLON DOT  &kp P         &kp Y        &kp F  &kp G       &kp C  &kp T                   &kp Z                    &kp BACKSPACE
-&kp CARET    &kp A   &kp O                &kp E          &kp I         &kp U        &kp H  &kp D       &kp R  &mt LEFT_PARENTHESIS N  &mt RIGHT_PARENTHESIS S  &mt ENTER L
-&de_ae       &de_oe  &kp Q                &kp J          &kp K         &kp X        &kp B  &kp M       &kp W  &kp V                   &mt APOS HASH            &kp MINUS
-                                          &kp LCTRL      &kp LEFT_GUI  &kp SPACE    &to 1  &kp RSHIFT  &mo 4
+&kp TAB     &de_ue  &kp COMMA  &kp PERIOD  &kp P         &kp Y        &kp F  &kp G  &kp C  &kp T  &kp Z     &kp BACKSPACE
+&kp ESCAPE  &kp A   &kp O      &kp E       &kp I         &kp U        &kp H  &kp D  &kp R  &kp N  &kp S     &kp L
+&de_ae      &de_oe  &kp Q      &kp J       &kp K         &kp X        &kp B  &kp M  &kp W  &kp V  &kp HASH  &kp MINUS
+                               &kp LCTRL   &kp LEFT_GUI  &kp SPACE    &to 1  &mo 5  &mo 4
             >;
         };
 
@@ -222,6 +220,15 @@
 &trans  &kp AT          &alt_trans        &sym_eur           &kp PIPE         &alt_trans    &alt_trans  &alt_trans  &sym_reg    &kp LPAR    &kp RPAR    &kp ENTER
 &trans  &alt_trans      &alt_trans        &alt_trans         &alt_trans       &alt_trans    &alt_trans  &alt_trans  &alt_trans  &alt_trans  &alt_trans  &trans
                                           &trans             &trans           &trans        &trans      &trans      &trans
+            >;
+        };
+
+        shift {
+            bindings = <
+&trans        &shift_trans  &kp SEMI      &kp LS(SEMI)  &shift_trans  &shift_trans    &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans
+&trans        &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans    &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans
+&shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans    &shift_trans  &shift_trans  &shift_trans  &shift_trans  &kp SQT       &shift_trans
+                                          &trans        &trans        &trans          &trans        &trans        &trans
             >;
         };
     };
