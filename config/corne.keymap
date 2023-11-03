@@ -103,19 +103,14 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LGUI>,
-                <&macro_tap>,
-                <&kp RIGHT>,
-                <&macro_release>,
-                <&kp LGUI &kp LCTRL>;
+                <&sk LCTRL(LG(RIGHT))>;
 
             label = "NAV_SPACE_NEXT";
         };
         nav_space_prev: nav_space_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&sk LCTRL &sk LGUI &kp LEFT>;
+            bindings = <&sk LCTRL(LG(LEFT))>;
             label = "NAV_SPACE_PREV";
         };
         nav_win_next: nav_win_next {
@@ -127,7 +122,7 @@
         nav_win_prev: nav_win_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&sk LALT &sk LSHIFT &kp TAB>;
+            bindings = <&sk LALT(LSHIFT(TAB))>;
             label = "NAV_WIN_PREV";
         };
         nav_desktop: nav_desktop {
@@ -140,12 +135,8 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&trans>,
-                <&macro_release>,
-                <&kp LSHIFT>;
+                <&sk LSHIFT>,
+                <&trans>;
 
             label = "SHIFT_TRANS";
         };
