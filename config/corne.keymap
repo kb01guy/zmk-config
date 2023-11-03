@@ -122,7 +122,7 @@
         nav_win_prev: nav_win_prev {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&sk LALT(LSHIFT(TAB))>;
+            bindings = <&sk LALT &sk LSHIFT &kp TAB>;
             label = "NAV_WIN_PREV";
         };
         nav_desktop: nav_desktop {
