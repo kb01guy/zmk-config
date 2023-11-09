@@ -155,6 +155,24 @@
             bindings = <&kp RALT &kp O &kp O>;
             label = "SYM_DEG";
         };
+        de_ue_gr: de_ue_gr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp LS(U) &kp DQT>;
+            label = "DE_UE_GR";
+        };
+        de_ae_gr: de_ae_gr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp LS(A) &kp DQT>;
+            label = "DE_AE_GR";
+        };
+        de_oe_gr: de_oe_gr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RALT &kp LS(O) &kp DQT>;
+            label = "DE_OE_GR";
+        };
     };
 
     keymap {
@@ -225,10 +243,19 @@
 
         shift {
             bindings = <
-&trans        &shift_trans  &kp SEMI      &kp LS(SEMI)  &shift_trans  &shift_trans    &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans
-&trans        &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans    &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans
-&shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans  &shift_trans    &shift_trans  &shift_trans  &shift_trans  &shift_trans  &kp SQT       &shift_trans
-                                          &trans        &trans        &trans          &trans        &trans        &trans
+&kp LS(TAB)  &de_ue_gr  &kp SEMI   &kp LS(SEMI)   &kp LS(P)         &kp LS(Y)        &kp LS(F)  &kp LS(G)  &kp LS(C)  &kp LS(T)  &kp LS(Z)  &kp LS(BACKSPACE)
+&kp LS(ESC)  &kp LS(A)  &kp LS(O)  &kp LS(E)      &kp LS(I)         &kp LS(U)        &kp LS(H)  &kp LS(D)  &kp LS(R)  &kp LS(N)  &kp LS(S)  &kp LS(L)
+&de_ae_gr    &de_oe_gr  &kp LS(Q)  &kp LS(J)      &kp LS(K)         &kp LS(X)        &kp LS(B)  &kp LS(M)  &kp LS(W)  &kp LS(V)  &kp SQT    &kp UNDER
+                                   &kp LS(LCTRL)  &kp LS(LEFT_WIN)  &kp LS(SPACE)    &trans     &trans     &kp LALT
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
     };
