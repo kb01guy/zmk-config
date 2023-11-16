@@ -341,8 +341,8 @@
 
         extend {
             bindings = <
-&kp ESC  &none      &kp C_AC_BACK  &kp C_AC_FIND  &kp C_AC_FORWARD  &kp INS      &kp PAGE_UP    &kp HOME   &kp UP    &kp END    &none            &kp BSPC
-&none    &sk LALT   &sk LGUI       &sk LSHFT      &sk LCTRL         &sk RALT     &kp PAGE_DOWN  &kp LEFT   &kp DOWN  &kp RIGHT  &kp DEL          &kp ENTER
+&kp ESC  &kp DEL    &kp C_AC_BACK  &kp C_AC_FIND  &kp C_AC_FORWARD  &kp INS      &kp PAGE_UP    &kp HOME   &kp UP    &kp END    &none            &kp BSPC
+&none    &sk LALT   &sk LGUI       &sk LSHFT      &sk LCTRL         &sk RALT     &kp PAGE_DOWN  &kp LEFT   &kp DOWN  &kp RIGHT  &none            &kp ENTER
 &none    &kp LC(Z)  &kp LC(X)      &kp LC(C)      &kp LGUI          &kp LC(V)    &none          &none      &kp TAB   &kp K_APP  &kp PRINTSCREEN  &none
                                    &none          &kp LSHFT         &kp ENTER    &kp BSPC       &kp SPACE  &none
             >;
