@@ -352,7 +352,7 @@
             bindings = <
 &de_caret_degree  &kp LEFT_BRACE      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp DOLLAR    &kp EXCL        &kp DOUBLE_QUOTES  &sym_copy      &sym_tm    &de_plus_star_tilde  &de_acute_grave
 &none             &sk LALT            &sk LGUI          &sk LSHFT          &sk LCTRL        &sk RALT      &dv_qestion_ss  &sym_section       &sym_reg       &kp LPAR   &kp RPAR             &dv_slash
-&none             &de_less_more_pipe  &none             &none              &none            &sym_eur      &kp PERCENT     &sym_mu            &kp AMPERSAND  &kp EQUAL  &de_hash             &kp MINUS
+&none             &de_less_more_pipe  &none             &none              &kp AT           &sym_eur      &kp PERCENT     &sym_mu            &kp AMPERSAND  &kp EQUAL  &de_hash             &kp MINUS
                                                         &none              &kp LSHFT        &kp ENTER     &kp BSPC        &kp SPACE          &none
             >;
         };
