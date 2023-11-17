@@ -12,36 +12,23 @@
         compatible = "zmk,combos";
 
         number_layer {
-            bindings = <&mo 5>;
+            bindings = <&mo 6>;
             key-positions = <37 41>;
         };
 
         function_layer {
-            bindings = <&mo 4>;
+            bindings = <&mo 5>;
             key-positions = <36 41>;
         };
     };
 
     macros {
-        alt_trans: alt_trans {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp RALT>,
-                <&macro_tap>,
-                <&trans>,
-                <&macro_release>,
-                <&kp RALT>;
-
-            label = "ALT_TRANS";
-        };
-
-        sym_section: sym_section {
+        
+        sym_sec: sym_sec {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp RALT &kp S &kp O>;
-            label = "SYM_SECTION";
+            label = "sym_sec";
         };
 
         de_ue: de_ue {
@@ -121,88 +108,11 @@
             label = "SYM_COPY";
         };
 
-        nav_space_next: nav_space_next {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LCTRL &kp LGUI>,
-                <&macro_tap>,
-                <&kp RIGHT>,
-                <&macro_release>,
-                <&kp LGUI &kp LCTRL>;
-
-            label = "NAV_SPACE_NEXT";
-        };
-
-        nav_space_prev: nav_space_prev {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LCTRL &sk LGUI &kp LEFT>;
-            label = "NAV_SPACE_PREV";
-        };
-
-        nav_win_next: nav_win_next {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LALT &kp TAB>;
-            label = "NAV_WIN_NEXT";
-        };
-
-        nav_win_prev: nav_win_prev {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LALT &sk LSHIFT &kp TAB>;
-            label = "NAV_WIN_PREV";
-        };
-
-        nav_desktop: nav_desktop {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&sk LGUI &kp D>;
-            label = "NAV_DESKTOP";
-        };
-
-        shift_trans: shift_trans {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHIFT>,
-                <&macro_tap>,
-                <&trans>,
-                <&macro_release>,
-                <&kp LSHIFT>;
-
-            label = "SHIFT_TRANS";
-        };
-
         sym_deg: sym_deg {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp RALT &kp O &kp O>;
             label = "SYM_DEG";
-        };
-
-        de_ue_gr: de_ue_gr {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RALT &kp LS(U) &kp DQT>;
-            label = "DE_UE_GR";
-        };
-
-        de_ae_gr: de_ae_gr {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RALT &kp LS(A) &kp DQT>;
-            label = "DE_AE_GR";
-        };
-
-        de_oe_gr: de_oe_gr {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&kp RALT &kp LS(O) &kp DQT>;
-            label = "DE_OE_GR";
         };
 
         sym_mu: sym_mu {
@@ -257,18 +167,18 @@
             mods = <(MOD_RALT)>;
         };
 
-        de_less_more_pipe: de_less_more_pipe {
+        de_lt_mt_pipe: de_lt_mt_pipe {
             compatible = "zmk,behavior-mod-morph";
-            label = "DE_LESS_MORE_PIPE";
+            label = "de_lt_mt_pipe";
             bindings = <&part_less_pipe>, <&kp GREATER_THAN>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
 
-        de_caret_degree: de_caret_degree {
+        de_car_deg: de_car_deg {
             compatible = "zmk,behavior-mod-morph";
-            label = "DE_CARET_DEGREE";
+            label = "de_car_deg";
             bindings = <&kp CARET>, <&sym_deg>;
 
             #binding-cells = <0>;
@@ -284,18 +194,18 @@
             mods = <(MOD_RALT)>;
         };
 
-        de_plus_star_tilde: de_plus_star_tilde {
+        de_plus_str_tld: de_plus_str_tld {
             compatible = "zmk,behavior-mod-morph";
-            label = "DE_PLUS_STAR_TILDE";
+            label = "de_plus_str_tld";
             bindings = <&part_plus_tilde>, <&kp STAR>;
 
             #binding-cells = <0>;
             mods = <(MOD_RALT)>;
         };
 
-        dv_qestion_ss: dv_qestion_ss {
+        dv_qmark_ss: dv_qmark_ss {
             compatible = "zmk,behavior-mod-morph";
-            label = "DV_QESTION_SS";
+            label = "dv_qmark_ss";
             bindings = <&kp QMARK>, <&de_ss>;
 
             #binding-cells = <0>;
@@ -325,6 +235,15 @@
         compatible = "zmk,keymap";
 
         default_layer {
+            bindings = <
+&kp TAB  &none     &de_comma &none      &none      &none       &none     &none      &none  &none  &none  &none
+&kp ESC  &sk LALT  &sk LGUI  &sk LSHFT  &sk LCTRL  &sk RALT    &none     &none      &none  &none  &none  &none
+&none    &none     &none     &none      &none      &none       &none     &none      &none  &none  &none  &none
+                             &mo 3      &kp LSHFT  &kp RET     &kp BSPC  &kp SPACE  &mo 4
+            >;
+        };
+
+        dvorak2 {
 // -----------------------------------------------------------------------------------------
 // | TAB |  Ü  |  ,  |  .  |  P  |  Y  |   |  F  |  G   |  C  |  T  |  Z  |  ?   |
 // | ESC |  A  |  O  |  E  |  I  |  U  |   |  H  |  D   |  R  |  N  |  S  |  L   |
@@ -332,60 +251,60 @@
 //                   | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB     &de_ue  &de_comma  &de_dot  &kp P      &kp Y      &kp F     &kp G      &kp C  &kp T  &kp Z     &dv_qestion_ss
-&kp ESC     &kp A   &kp O      &kp E    &kp I      &kp U      &kp H     &kp D      &kp R  &kp N  &kp S     &kp L
-&de_ae      &de_oe  &kp Q      &kp J    &kp K      &kp X      &kp B     &kp M      &kp W  &kp V  &de_hash  &kp MINUS
-                               &mo 2    &kp LSHFT  &kp RET    &kp BSPC  &kp SPACE  &mo 3
+&trans  &de_ue  &trans  &trans  &kp P   &kp Y     &kp F   &kp G   &kp C  &kp T  &kp Z     &dv_qmark_ss
+&trans  &kp A   &kp O   &kp E   &kp I   &kp U     &kp H   &kp D   &kp R  &kp N  &kp S     &kp L
+&de_ae  &de_oe  &kp Q   &kp J   &kp K   &kp X     &kp B   &kp M   &kp W  &kp V  &de_hash  &kp MINUS
+                        &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
-        de {
+        quertz_de {
 // -----------------------------------------------------------------------------------------
 // | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Z  |  U   |  I  |  O  |  P  |  Ü   |
 // | ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  Ö  |  Ä   |
 // |  <  |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -  |  #   |
 //                   | EXT | SFT | ENT |   | BSP | SPC  | SYM |
                 bindings = <
-&kp TAB             &kp Q  &kp W  &kp E  &kp R      &kp T     &kp Z     &kp U      &kp I      &kp O    &kp P      &de_ue
-&kp ESC             &kp A  &kp S  &kp D  &kp F      &kp G     &kp H     &kp J      &kp K      &kp L    &de_oe     &de_ae
-&de_less_more_pipe  &kp Y  &kp X  &kp C  &kp V      &kp B     &kp N     &kp M      &de_comma  &de_dot  &kp MINUS  &de_hash
-                                  &mo 2  &kp LSHFT  &kp RET   &kp BSPC  &kp SPACE  &mo 3
+&trans          &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Z   &kp U   &kp I      &kp O    &kp P      &de_ue
+&trans          &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &de_oe     &de_ae
+&de_lt_mt_pipe  &kp Y  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &de_comma  &de_dot  &kp MINUS  &de_hash
+                              &trans  &trans  &trans    &trans  &trans  &trans
             >;
         };
 
         extend {
             bindings = <
-&kp ESC  &kp DEL    &kp C_AC_BACK  &kp C_AC_FIND  &kp C_AC_FORWARD  &kp INS      &kp PAGE_UP    &kp HOME   &kp UP    &kp END    &none            &kp BSPC
-&none    &sk LALT   &sk LGUI       &sk LSHFT      &sk LCTRL         &sk RALT     &kp PAGE_DOWN  &kp LEFT   &kp DOWN  &kp RIGHT  &none            &kp ENTER
-&none    &kp LC(Z)  &kp LC(X)      &kp LC(C)      &kp LGUI          &kp LC(V)    &none          &none      &kp TAB   &kp K_APP  &kp PRINTSCREEN  &none
-                                   &none          &kp LSHFT         &kp ENTER    &kp BSPC       &kp SPACE  &none
+&trans  &kp DEL    &kp C_AC_BACK  &kp C_AC_FIND  &kp C_AC_FORWARD  &kp INS      &kp PG_UP  &kp HOME  &kp UP    &kp END    &none      &kp BSPC
+&trans  &trans     &trans         &trans         &trans            &trans       &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none      &kp ENTER
+&none   &kp LC(Z)  &kp LC(X)      &kp LC(C)      &kp LGUI          &kp LC(V)    &none      &none     &kp TAB   &kp K_APP  &kp PSCRN  &none
+                                  &none          &trans            &trans       &trans     &trans    &none
             >;
         };
 
         symbol {
             bindings = <
-&de_caret_degree  &kp LEFT_BRACE      &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT_BRACE  &kp DOLLAR    &kp EXCL        &kp DOUBLE_QUOTES  &sym_copy      &sym_tm    &de_plus_star_tilde  &de_acute_grave
-&none             &sk LALT            &sk LGUI          &sk LSHFT          &sk LCTRL        &sk RALT      &dv_qestion_ss  &sym_section       &sym_reg       &kp LPAR   &kp RPAR             &dv_slash
-&none             &de_less_more_pipe  &none             &none              &kp AT           &sym_eur      &kp PERCENT     &sym_mu            &kp AMPERSAND  &kp EQUAL  &de_hash             &kp MINUS
-                                                        &none              &kp LSHFT        &kp ENTER     &kp BSPC        &kp SPACE          &none
+&de_car_deg  &kp LBRC        &kp LBRK  &kp RBRK  &kp RBRC  &kp DOLLAR    &kp EXCL      &kp DQT   &sym_copy  &sym_tm    &de_plus_str_tld  &de_acute_grave
+&none        &trans          &trans    &trans    &trans    &trans        &dv_qmark_ss  &sym_sec  &sym_reg   &kp LPAR   &kp RPAR          &dv_slash
+&none        &de_lt_mt_pipe  &none     &none     &kp AT    &sym_eur      &kp PRCNT     &sym_mu   &kp AMPS   &kp EQUAL  &de_hash          &kp MINUS
+                                       &none     &trans    &trans        &trans        &trans    &none
             >;
         };
 
         function {
             bindings = <
-&none  &kp C_STOP  &kp C_PREV         &kp C_PP       &kp C_NEXT       &kp C_BRI_UP     &kp F12   &kp F7     &kp F8  &kp F9  &kp SLCK  &none
-&none  &sk LALT    &sk LGUI           &sk LSHFT      &sk LCTRL        &kp C_BRI_DN     &kp F11   &kp F4     &kp F5  &kp F6  &to 0     &none
-&none  &kp C_MUTE  &kp C_VOLUME_DOWN  &kp LS(LC(C))  &kp C_VOLUME_UP  &kp LC(LS(V))    &kp F10   &kp F1     &kp F2  &kp F3  &to 1     &none
-                                      &none          &kp LSHFT        &kp ENTER        &kp BSPC  &kp SPACE  &none
+&trans  &kp C_STOP  &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp C_BRI_UP     &kp F12  &kp F7  &kp F8  &kp F9  &kp SLCK  &none
+&trans  &trans      &trans        &trans         &trans        &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 1     &none
+&none   &kp C_MUTE  &kp C_VOL_DN  &kp LS(LC(C))  &kp C_VOL_UP  &kp LC(LS(V))    &kp F10  &kp F1  &kp F2  &kp F3  &to 2     &none
+                                  &none          &trans        &trans           &trans   &trans  &none
             >;
         };
 
         number {
             bindings = <
-&none  &de_less_more_pipe  &de_comma  &de_dot    &none      &none        &kp EQUAL  &kp N7     &kp N8  &kp N9  &kp PLUS   &kp BSPC
-&none  &sk LALT            &sk LGUI   &sk LSHFT  &sk LCTRL  &sk RALT     &kp STAR   &kp N4     &kp N5  &kp N6  &kp MINUS  &kp RET
-&none  &none               &kp Y      &kp TAB    &kp BSPC   &kp ENTER    &kp N0     &kp N1     &kp N2  &kp N3  &kp FSLH   &none
-                                      &none      &kp LSHFT  &kp ENTER    &kp BSPC   &kp SPACE  &none
+&trans  &de_lt_mt_pipe  &trans  &trans   &none     &none     &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp PLUS   &kp BSPC
+&trans  &trans          &trans  &trans   &trans    &trans    &kp STAR   &kp N4  &kp N5  &kp N6  &kp MINUS  &kp RET
+&none   &none           &kp Y   &kp TAB  &kp BSPC  &kp RET   &kp N0     &kp N1  &kp N2  &kp N3  &kp FSLH   &none
+                                &none    &trans    &trans    &trans     &trans  &none
             >;
         };
     };
