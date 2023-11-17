@@ -23,7 +23,7 @@
     };
 
     macros {
-        
+
         sym_sec: sym_sec {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -283,10 +283,10 @@
 
         symbol {
             bindings = <
-&de_car_deg  &kp LBRC        &kp LBRK  &kp RBRK  &kp RBRC  &kp DOLLAR    &kp EXCL      &kp DQT   &sym_copy  &sym_tm    &de_plus_str_tld  &de_acute_grave
-&none        &trans          &trans    &trans    &trans    &trans        &dv_qmark_ss  &sym_sec  &sym_reg   &kp LPAR   &kp RPAR          &dv_slash
-&none        &de_lt_mt_pipe  &none     &none     &kp AT    &sym_eur      &kp PRCNT     &sym_mu   &kp AMPS   &kp EQUAL  &de_hash          &kp MINUS
-                                       &none     &trans    &trans        &trans        &trans    &none
+&de_car_deg  &kp LBRC        &kp LBKT  &kp RBKT  &kp RBRC  &kp DLLR    &kp EXCL      &kp DQT   &sym_copy  &sym_tm    &de_plus_str_tld  &de_acute_grave
+&none        &trans          &trans    &trans    &trans    &trans      &dv_qmark_ss  &sym_sec  &sym_reg   &kp LPAR   &kp RPAR          &dv_slash
+&none        &de_lt_mt_pipe  &none     &none     &kp AT    &sym_eur    &kp PRCNT     &sym_mu   &kp AMPS   &kp EQUAL  &de_hash          &kp MINUS
+                                       &none     &trans    &trans      &trans        &trans    &none
             >;
         };
 
