@@ -12,12 +12,12 @@
         compatible = "zmk,combos";
 
         number_layer {
-            bindings = <&mo 6>;
+            bindings = <&mo 5>;
             key-positions = <37 41>;
         };
 
         function_layer {
-            bindings = <&mo 5>;
+            bindings = <&mo 4>;
             key-positions = <36 41>;
         };
     };
@@ -235,15 +235,6 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <
-&kp TAB  &none  &none  &none  &none      &none       &none     &none      &none  &none  &none  &none
-&kp ESC  &none  &none  &none  &none      &none       &none     &none      &none  &none  &none  &none
-&none    &none  &none  &none  &none      &none       &none     &none      &none  &none  &none  &none
-                       &mo 3  &kp LSHFT  &kp RET     &kp BSPC  &kp SPACE  &mo 4
-            >;
-        };
-
-        dvorak2 {
 // -----------------------------------------------------------------------------------------
 // | TAB |  Ü  |  ,  |  .  |  P  |  Y  |   |  F  |  G   |  C  |  T  |  Z  |  ?   |
 // | ESC |  A  |  O  |  E  |  I  |  U  |   |  H  |  D   |  R  |  N  |  S  |  L   |
@@ -251,10 +242,10 @@
 //                   | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&trans  &de_ue  &trans  &trans  &kp P   &kp Y     &kp F   &kp G   &kp C  &kp T  &kp Z     &dv_qmark_ss
-&trans  &kp A   &kp O   &kp E   &kp I   &kp U     &kp H   &kp D   &kp R  &kp N  &kp S     &kp L
-&de_ae  &de_oe  &kp Q   &kp J   &kp K   &kp X     &kp B   &kp M   &kp W  &kp V  &de_hash  &kp MINUS
-                        &trans  &trans  &trans    &trans  &trans  &trans
+&kp TAB  &de_ue  &de_comma  &de_dot  &kp P      &kp Y      &kp F     &kp G      &kp C  &kp T  &kp Z     &dv_qmark_ss
+&kp ESC  &kp A   &kp O      &kp E    &kp I      &kp U      &kp H     &kp D      &kp R  &kp N  &kp S     &kp L
+&de_ae   &de_oe  &kp Q      &kp J    &kp K      &kp X      &kp B     &kp M      &kp W  &kp V  &de_hash  &kp MINUS
+                            &mo 2    &kp LSHFT  &kp RET    &kp BSPC  &kp SPACE  &mo 3
             >;
         };
 
@@ -293,8 +284,8 @@
         function {
             bindings = <
 &trans  &kp C_STOP  &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp C_BRI_UP     &kp F12  &kp F7  &kp F8  &kp F9  &kp SLCK  &none
-&trans  &sk LALT    &sk LGUI      &sk LSHFT      &sk LCTRL     &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 1     &none
-&none   &kp C_MUTE  &kp C_VOL_DN  &kp LS(LC(C))  &kp C_VOL_UP  &kp LC(LS(V))    &kp F10  &kp F1  &kp F2  &kp F3  &to 2     &none
+&trans  &sk LALT    &sk LGUI      &sk LSHFT      &sk LCTRL     &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 0     &none
+&none   &kp C_MUTE  &kp C_VOL_DN  &kp LS(LC(C))  &kp C_VOL_UP  &kp LC(LS(V))    &kp F10  &kp F1  &kp F2  &kp F3  &to 1     &none
                                   &none          &trans        &trans           &trans   &trans  &none
             >;
         };
