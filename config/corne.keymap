@@ -236,10 +236,10 @@
 
         default_layer {
             bindings = <
-&kp TAB  &none     &de_comma &none      &none      &none       &none     &none      &none  &none  &none  &none
-&kp ESC  &sk LALT  &sk LGUI  &sk LSHFT  &sk LCTRL  &sk RALT    &none     &none      &none  &none  &none  &none
-&none    &none     &none     &none      &none      &none       &none     &none      &none  &none  &none  &none
-                             &mo 3      &kp LSHFT  &kp RET     &kp BSPC  &kp SPACE  &mo 4
+&kp TAB  &none  &none  &none  &none      &none       &none     &none      &none  &none  &none  &none
+&kp ESC  &none  &none  &none  &none      &none       &none     &none      &none  &none  &none  &none
+&none    &none  &none  &none  &none      &none       &none     &none      &none  &none  &none  &none
+                       &mo 3  &kp LSHFT  &kp RET     &kp BSPC  &kp SPACE  &mo 4
             >;
         };
 
@@ -275,7 +275,7 @@
         extend {
             bindings = <
 &trans  &kp DEL    &kp C_AC_BACK  &kp C_AC_FIND  &kp C_AC_FORWARD  &kp INS      &kp PG_UP  &kp HOME  &kp UP    &kp END    &none      &kp BSPC
-&trans  &trans     &trans         &trans         &trans            &trans       &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none      &kp ENTER
+&trans  &sk LALT   &sk LGUI       &sk LSHFT      &sk LCTRL         &sk RALT     &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &none      &kp ENTER
 &none   &kp LC(Z)  &kp LC(X)      &kp LC(C)      &kp LGUI          &kp LC(V)    &none      &none     &kp TAB   &kp K_APP  &kp PSCRN  &none
                                   &none          &trans            &trans       &trans     &trans    &none
             >;
@@ -283,17 +283,17 @@
 
         symbol {
             bindings = <
-&de_car_deg  &kp LBRC        &kp LBKT  &kp RBKT  &kp RBRC  &kp DLLR    &kp EXCL      &kp DQT   &sym_copy  &sym_tm    &de_plus_str_tld  &de_acute_grave
-&none        &trans          &trans    &trans    &trans    &trans      &dv_qmark_ss  &sym_sec  &sym_reg   &kp LPAR   &kp RPAR          &dv_slash
-&none        &de_lt_mt_pipe  &none     &none     &kp AT    &sym_eur    &kp PRCNT     &sym_mu   &kp AMPS   &kp EQUAL  &de_hash          &kp MINUS
-                                       &none     &trans    &trans      &trans        &trans    &none
+&de_car_deg  &kp LBRC        &kp LBKT  &kp RBKT   &kp RBRC   &kp DLLR    &kp EXCL      &kp DQT   &sym_copy  &sym_tm    &de_plus_str_tld  &de_acute_grave
+&none        &sk LALT        &sk LGUI  &sk LSHFT  &sk LCTRL  &sk RALT    &dv_qmark_ss  &sym_sec  &sym_reg   &kp LPAR   &kp RPAR          &dv_slash
+&none        &de_lt_mt_pipe  &none     &none      &kp AT     &sym_eur    &kp PRCNT     &sym_mu   &kp AMPS   &kp EQUAL  &de_hash          &kp MINUS
+                                       &none      &trans     &trans      &trans        &trans    &none
             >;
         };
 
         function {
             bindings = <
 &trans  &kp C_STOP  &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp C_BRI_UP     &kp F12  &kp F7  &kp F8  &kp F9  &kp SLCK  &none
-&trans  &trans      &trans        &trans         &trans        &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 1     &none
+&trans  &sk LALT    &sk LGUI      &sk LSHFT      &sk LCTRL     &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 1     &none
 &none   &kp C_MUTE  &kp C_VOL_DN  &kp LS(LC(C))  &kp C_VOL_UP  &kp LC(LS(V))    &kp F10  &kp F1  &kp F2  &kp F3  &to 2     &none
                                   &none          &trans        &trans           &trans   &trans  &none
             >;
@@ -301,10 +301,10 @@
 
         number {
             bindings = <
-&trans  &de_lt_mt_pipe  &trans  &trans   &none     &none     &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp PLUS   &kp BSPC
-&trans  &trans          &trans  &trans   &trans    &trans    &kp STAR   &kp N4  &kp N5  &kp N6  &kp MINUS  &kp RET
-&none   &none           &kp Y   &kp TAB  &kp BSPC  &kp RET   &kp N0     &kp N1  &kp N2  &kp N3  &kp FSLH   &none
-                                &none    &trans    &trans    &trans     &trans  &none
+&trans  &de_lt_mt_pipe  &de_comma  &de_dot    &none      &none       &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp PLUS   &kp BSPC
+&trans  &sk LALT        &sk LGUI   &sk LSHFT  &sk LCTRL  &sk RALT    &kp STAR   &kp N4  &kp N5  &kp N6  &kp MINUS  &kp RET
+&none   &none           &kp Y      &kp TAB    &kp BSPC   &kp RET     &kp N0     &kp N1  &kp N2  &kp N3  &kp FSLH   &none
+                                   &none      &trans     &trans      &trans     &trans  &none
             >;
         };
     };
