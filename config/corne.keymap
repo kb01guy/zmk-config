@@ -7,6 +7,10 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+&led_strip {
+    chain-length = <21>;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
