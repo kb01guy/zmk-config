@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
@@ -23,7 +24,6 @@
     };
 
     macros {
-
         sym_sec: sym_sec {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -235,11 +235,11 @@
         compatible = "zmk,keymap";
 
         default_layer {
-// -----------------------------------------------------------------------------------------
-// | TAB |  Ü  |  ,  |  .  |  P  |  Y  |   |  F  |  G   |  C  |  T  |  Z  |  ?   |
-// | ESC |  A  |  O  |  E  |  I  |  U  |   |  H  |  D   |  R  |  N  |  S  |  L   |
-// |  Ä  |  Ö  |  Q  |  J  |  K  |  X  |   |  B  |  M   |  ,  |  .  |  #  |  -   |
-//                   | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
+            // -----------------------------------------------------------------------------------------
+            // | TAB |  Ü  |  ,  |  .  |  P  |  Y  |   |  F  |  G   |  C  |  T  |  Z  |  ?   |
+            // | ESC |  A  |  O  |  E  |  I  |  U  |   |  H  |  D   |  R  |  N  |  S  |  L   |
+            // |  Ä  |  Ö  |  Q  |  J  |  K  |  X  |   |  B  |  M   |  ,  |  .  |  #  |  -   |
+            //                   | CTRL| GUI | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
 &kp TAB  &de_ue  &de_comma  &de_dot  &kp P      &kp Y      &kp F     &kp G      &kp C  &kp T  &kp Z     &dv_qmark_ss
@@ -250,16 +250,17 @@
         };
 
         quertz_de {
-// -----------------------------------------------------------------------------------------
-// | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Z  |  U   |  I  |  O  |  P  |  Ü   |
-// | ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  Ö  |  Ä   |
-// |  <  |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -  |  #   |
-//                   | EXT | SFT | ENT |   | BSP | SPC  | SYM |
-                bindings = <
-&trans          &kp Q  &kp W  &kp E   &kp R   &kp T     &kp Z   &kp U   &kp I      &kp O    &kp P      &de_ue
-&trans          &kp A  &kp S  &kp D   &kp F   &kp G     &kp H   &kp J   &kp K      &kp L    &de_oe     &de_ae
-&de_lt_mt_pipe  &kp Y  &kp X  &kp C   &kp V   &kp B     &kp N   &kp M   &de_comma  &de_dot  &kp MINUS  &de_hash
-                              &trans  &trans  &trans    &trans  &trans  &trans
+            // -----------------------------------------------------------------------------------------
+            // | TAB |  Q  |  W  |  E  |  R  |  T  |   |  Z  |  U   |  I  |  O  |  P  |  Ü   |
+            // | ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  Ö  |  Ä   |
+            // |  <  |  Y  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  -  |  #   |
+            //                   | EXT | SFT | ENT |   | BSP | SPC  | SYM |
+
+            bindings = <
+&trans          &kp Q  &kp W  &kp E   &kp R      &kp T        &kp Z          &kp U      &kp I      &kp O    &kp P      &de_ue
+&trans          &kp A  &kp S  &kp D   &kp F      &kp G        &kp H          &kp J      &kp K      &kp L    &de_oe     &de_ae
+&de_lt_mt_pipe  &kp Y  &kp X  &kp C   &kp V      &kp B        &kp N          &kp M      &de_comma  &de_dot  &kp MINUS  &de_hash
+                              &trans  &kp LSHFT  &kp ENTER    &kp BACKSPACE  &kp SPACE  &trans
             >;
         };
 
@@ -283,9 +284,9 @@
 
         function {
             bindings = <
-&trans  &kp C_STOP  &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp C_BRI_UP     &kp F12  &kp F7  &kp F8  &kp F9  &kp SLCK  &none
-&trans  &sk LALT    &sk LGUI      &sk LSHFT      &sk LCTRL     &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 0     &none
-&none   &kp C_MUTE  &kp C_VOL_DN  &kp LS(LC(C))  &kp C_VOL_UP  &kp LC(LS(V))    &kp F10  &kp F1  &kp F2  &kp F3  &to 1     &none
+&trans  &kp C_STOP  &kp C_PREV    &kp C_PP       &kp C_NEXT    &kp C_BRI_UP     &kp F12  &kp F7  &kp F8  &kp F9  &kp SLCK  &bt BT_CLR
+&trans  &sk LALT    &sk LGUI      &sk LSHFT      &sk LCTRL     &kp C_BRI_DN     &kp F11  &kp F4  &kp F5  &kp F6  &to 0     &bt BT_SEL 0
+&none   &kp C_MUTE  &kp C_VOL_DN  &kp LS(LC(C))  &kp C_VOL_UP  &kp LC(LS(V))    &kp F10  &kp F1  &kp F2  &kp F3  &to 1     &bt BT_SEL 1
                                   &none          &trans        &trans           &trans   &trans  &none
             >;
         };
